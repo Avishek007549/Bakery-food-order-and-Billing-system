@@ -1,0 +1,5 @@
+.env
+bakery_payments.sqlite3
+bakery_payments.sqlite3-shm
+bakery_payments.sqlite3-wal
+__pycache__/

@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#321b16">
+  <title>Namaste Bakery | Freshly Made, Happily Served</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="brand-mark-core">NB</span>
+      </span>
+      <span>
+        <strong>Namaste Bakery</strong>
+        <small>FRESHLY MADE, HAPPILY SERVED</small>
+      </span>
+    </a>
+
+    <div class="topbar-contact">
+      <div class="mini-contact">📍 Biratnagar, Morang, Nepal</div>
+      <div class="mini-contact">📞 <a class="contact-link" href="tel:+9779704548230">+977-9704548230</a>, <a class="contact-link" href="tel:+9779840402347">+977-9840402347</a></div>
+      <div class="mini-contact">✉️ <a class="contact-link" href="mailto:info@namastebakery.com">info@namastebakery.com</a></div>
+    </div>
+
+    <div class="open-status"><span></span> Freshness made daily</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR NEIGHBORHOOD BAKERY</span>
+        <h1>A little joy in<br>every <span>bite.</span></h1>
+        <p>Fresh flavors, comforting favorites, and something delicious for everyone.</p>
+        <a class="hero-button" href="#menu">Explore our menu <span>↓</span></a>
+        <div class="hero-note">✦ Made with love · Served with a smile</div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Illustration of freshly baked treats">
+        <div class="hero-circle"></div>
+        <div class="hero-food">🥐</div>
+        <div class="floating-food food-one">☕</div>
+        <div class="floating-food food-two">🍕</div>
+        <div class="floating-food food-three">🍪</div>
+        <div class="hero-sticker">BAKED<br>WITH ♥</div>
+      </div>
+    </section>
+
+    <section class="service-strip">
+      <div>🥖 <span><strong>Fresh favorites</strong><small>Something for every craving</small></span></div>
+      <div>🧾 <span><strong>Instant billing</strong><small>Clear, itemized receipts</small></span></div>
+      <div>💛 <span><strong>Made for you</strong><small>Order your way</small></span></div>
+    </section>
+
+    <section class="order-layout" id="menu">
+      <div class="menu-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">MADE TO MAKE YOU SMILE</span>
+            <h2>Our Menu</h2>
+            <p>Choose your favorites and build your perfect order.</p>
+          </div>
+          <span class="menu-count" id="menuCount">50 delicious choices</span>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+
+      <aside class="order-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">YOUR SELECTION</span>
+            <h2>Your Order <span class="cart-badge" id="cartCount">0</span></h2>
+          </div>
+          <button class="text-button" id="clearCartBtn" type="button">Clear all</button>
+        </div>
+
+        <label class="field-label" for="customerName">Customer name</label>
+        <input id="customerName" class="customer-input" type="text"
+               placeholder="Enter customer name" maxlength="80"
+               autocomplete="name">
+
+        <div class="payment-section">
+          <label class="field-label">Payment method</label>
+          <div class="payment-options" role="radiogroup" aria-label="Choose payment method">
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="Cash">
+              <span>💵 Cash</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="eSewa" checked>
+              <span>💳 Online payment (QR)</span>
+            </label>
+          </div>
+
+          <div class="payment-checkout-panel" id="paymentCheckoutPanel" hidden>
+            <div class="payment-qr-header">
+              <span>ONE-TIME QR · SHOW TO CUSTOMER</span>
+              <strong id="paymentProviderLabel">QR payment</strong>
+            </div>
+            <div class="customer-qr-box" id="customerQrBox" hidden>
+              <img id="customerQrImage" alt="One-time online payment checkout QR code" />
+            </div>
+            <a class="online-payment-link" id="onlinePaymentLink" href="#" target="_blank"
+               rel="noopener noreferrer" hidden>Open online checkout</a>
+            <p id="paymentInstruction" role="status">
+              Generate a one-time payment QR to scan, or open the online checkout directly.
+            </p>
+            <button class="secondary-button cancel-payment-button" id="cancelPaymentBtn" type="button" hidden>Cancel payment</button>
+          </div>
+        </div>
+
+        <div class="cart-items" id="cartItems" aria-live="polite">
+          <div class="empty-cart">
+            <span>🛍️</span>
+            <strong>Your cart is waiting!</strong>
+            <p>Add something delicious from our menu.</p>
+          </div>
+        </div>
+
+        <div class="offer-box">
+          <span class="offer-icon">🎁</span>
+          <div>
+            <strong>A little extra happiness</strong>
+            <p>Spend over Rs. 10,000 and get 20% off!</p>
+          </div>
+        </div>
+
+        <div class="bill-summary">
+          <div><span>Subtotal</span><strong id="subtotal">Rs. 0.00</strong></div>
+          <div id="discountRow" class="discount-row" hidden>
+            <span>Annual offer (20%)</span>
+            <strong id="discount">− Rs. 0.00</strong>
+          </div>
+          <div class="total-row"><span>Total to pay</span><strong id="total">Rs. 0.00</strong></div>
+        </div>
+
+        <button id="acceptOrderBtn" class="checkout-button" type="button">
+          <span id="acceptOrderLabel">Accept Order</span> <span aria-hidden="true">→</span>
+        </button>
+        <p class="secure-note">✦ Review your order before confirming</p>
+        <p class="form-message" id="formMessage" role="status"></p>
+      </aside>
+    </section>
+
+    <section class="confirmation-section" id="confirmationSection" hidden>
+      <div class="confirmation-heading">
+        <div>
+          <span class="eyebrow">ORDER RECEIVED</span>
+          <h2>Thank you for choosing us!</h2>
+          <p>Your order has been confirmed in this session.</p>
+        </div>
+        <span class="confirmed-icon">✓</span>
+      </div>
+      <div id="receipt" class="receipt"></div>
+      <div class="receipt-actions">
+        <button class="checkout-button" id="printBtn" type="button">Print Receipt ↗</button>
+        <button class="secondary-button" id="newOrderBtn" type="button">Start New Order</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="#">🥐 Namaste Bakery</a>
+    <p>Made with love, baked with happiness.</p>
+    <div class="footer-contact">
+      <span>📍 Biratnagar, Morang, Nepal</span>
+      <span>📞 <a class="contact-link" href="tel:+9779704548230">+977-9704548230</a>, <a class="contact-link" href="tel:+9779840402347">+977-9840402347</a></span>
+      <span>✉️ <a class="contact-link" href="mailto:info@namastebakery.com">info@namastebakery.com</a></span>
+    </div>
+    <small>© <span id="year"></span> Namaste Bakery · All rights reserved.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
